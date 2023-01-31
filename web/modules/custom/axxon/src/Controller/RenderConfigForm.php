@@ -4,7 +4,6 @@ namespace Drupal\axxon\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
-
 /**
  * Provides route responses for the Example module.
  */
@@ -21,8 +20,6 @@ class RenderConfigForm extends ControllerBase {
     return [
       '#theme' => 'axxon_challenge',
       '#my_form' => $form,
-      '#attached' => [
-      ],
     ];
   }
 

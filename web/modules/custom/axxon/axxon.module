@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @file
+ * Contains enroll_now.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_view() for node entities.
+ */
+function axxon_node_view(array &$build, EntityInterface $node, EntityViewDisplayInterface $display, $view_mode) {
+  $text_body = $build['body'][0]['#text'];
+
+  if ($node) {
+    $label_content_type = $node->type->entity->label();
+    $build['body'][0]['#text'] = $text_body . t('The content type used for this node is: ') . $label_content_type;
+  }
+
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function axxon_page_attachments(array &$attachments) {
+  $site_name = \Drupal::config('system.site')->get('name');
+  // attach the data to the drupalSettings.
+  $attachments['#attached']['drupalSettings']['axxon']['siteName'] = $site_name;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function axxon_theme($existing, $type, $theme, $path) {
+  return [
+    'axxon_challenge' => [
+      'variables' => array(
+        'my_form' => NULL
+      ),
+      'render element' => 'form',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_help().
+ */
+function axxon_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the Axxon module.
+    case 'help.page.axxon':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Axxon Challenge') . '</p>';
+      return $output;
+
+    default:
+  }
+}

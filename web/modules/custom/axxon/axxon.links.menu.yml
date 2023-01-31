@@ -1,0 +1,6 @@
+axon.admin:
+  title: 'Axxon Challenge'
+  description: 'This is the link for the Axxon Config Form'
+  parent: system.admin
+  route_name: axon.render_form
+  weight: 100

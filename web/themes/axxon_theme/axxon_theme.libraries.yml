@@ -1,0 +1,9 @@
+global:
+  version: VERSION
+  css:
+    theme:
+      css/global.css: { }
+      css/materialize.min.css: { minified: true }
+  js:
+    js/custom.js: {}
+

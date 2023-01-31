@@ -1,0 +1,14 @@
+axxon.settings_form:
+  path: '/admin/axxon/render_form'
+  defaults:
+    _form: 'Drupal\axxon\Form\SettingsForm'
+    _title: 'Form Axxon Challenge'
+  requirements:
+    _role: 'authenticated'
+axon.render_form:
+  path: '/admin/axxon/form'
+  defaults:
+    _title: 'User profile'
+    _controller: '\Drupal\axxon\Controller\RenderConfigForm::render'
+  requirements:
+    _role: 'authenticated'

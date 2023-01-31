@@ -1,0 +1,16 @@
+name: axxon
+type: theme
+description: This is a custom theme
+core_version_requirement: ^9
+base theme: classy
+
+libraries:
+  - axxon_theme/global
+
+regions:
+  header: Header
+  primary_menu: 'Primary menu'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  breadcrumb: Breadcrumb
+  content: Content

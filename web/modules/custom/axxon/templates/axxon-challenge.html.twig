@@ -1,0 +1,15 @@
+{{ form.form_build_id }}
+{{ form.form_token }}
+{{ form.form_id }}
+
+
+<div class="row axxon-form">
+  <div class="col-md-6">
+    <p>{{ 'Please add just integer numbers'|t }}</p>
+    {{ my_form.number_integer }}
+  </div>
+  <div class="col-md-6">
+    <p>{{ 'You can use the editor options palettes to enrich the content'|t }}</p>
+    {{ my_form.my_textarea }}
+  </div>
+</div>
